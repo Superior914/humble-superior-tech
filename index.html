@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Humble Superior Technology - Phone Repairs & Sales</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .about-features {
+            margin-top: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .cta-button-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            color: var(--primary);
+            font-size: 20px;
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--secondary);
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                order: -1;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Humble <span>Superior</span> Technology</div>
+                <div class="nav-links">
+                    <a href="#services">Services</a>
+                    <a href="#about">About</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <a href="https://wa.me/2347050746268" class="cta-button">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Us
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Expert Phone Repairs & Tech Solutions</h1>
+            <p>Your trusted partner for all phone repairs, sales, and technology training in Oyo State. Fast, reliable, and affordable services you can count on.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/2347050746268" class="cta-button">
+                    <i class="fab fa-whatsapp"></i> Get Help Now
+                </a>
+                <a href="#services" class="cta-button-outline">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer comprehensive phone solutions to meet all your technology needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Phone Repair">
+                    </div>
+                    <div class="service-content">
+                        <h3>Phone Repairs</h3>
+                        <p>Expert repairs for all iPhone, Android, and feature phone models. We fix screens, batteries, charging ports, and more with premium parts.</p>
+                        <a href="https://wa.me/2347050746268" class="cta-button">Get Repaired</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Phone Sales">
+                    </div>
+                    <div class="service-content">
+                        <h3>Buy/Sell/Swap</h3>
+                        <p>We buy, sell, and swap both new and used phones. Get the best deals on quality devices with warranty options available.</p>
+                        <a href="https://wa.me/2347050746268" class="cta-button">Browse Phones</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Phone Accessories">
+                    </div>
+                    <div class="service-content">
+                        <h3>Accessories</h3>
+                        <p>Premium earphones, chargers, data cables, batteries, power banks, and more at competitive prices.</p>
+                        <a href="https://wa.me/2347050746268" class="cta-button">Shop Now</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Tech Training">
+                    </div>
+                    <div class="service-content">
+                        <h3>Tech Training</h3>
+                        <p>Comprehensive training programs for students interested in phone technology and repairs. Start your tech career today!</p>
+                        <a href="https://wa.me/2347050746268" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Why Choose Humble Superior Technology?</h2>
+                    <p>With years of experience in the phone repair and sales industry, we've built a reputation for excellence in Oyo State. Our commitment to quality service and customer satisfaction sets us apart.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div>
+                                <h4>Expert Technicians</h4>
+                                <p>Our certified technicians have the skills to handle any phone issue with precision.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div>
+                                <h4>Quality Parts</h4>
+                                <p>We use only high-quality, genuine parts for all repairs and accessories.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4>Fast Service</h4>
+                                <p>Most repairs completed within hours, not days. We value your time.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a9e5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our Workshop">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+                <p>Don't just take our word for it - hear from our satisfied customers</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Humble Superior Technology fixed my iPhone screen in under an hour when no one else could. The service was professional and affordable. Highly recommended!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Adeola Johnson">
+                        </div>
+                        <div class="author-info">
+                            <h4>Adeola Johnson</h4>
+                            <p>iPhone User</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "I got a like-new Samsung phone at half the price of a new one. It works perfectly and came with a warranty. Will definitely buy from them again."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Tunde Williams">
+                        </div>
+                        <div class="author-info">
+                            <h4>Tunde Williams</h4>
+                            <p>Samsung User</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "The phone repair training changed my life! I now have a valuable skill that earns me money. The instructors were patient and knowledgeable."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Bisi Adekunle">
+                        </div>
+                        <div class="author-info">
+                            <h4>Bisi Adekunle</h4>
+                            <p>Training Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Fix, Upgrade or Learn?</h2>
+            <p>Contact us today for fast, reliable phone services in Oyo State. We're here to help with all your technology needs.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/2347050746268" class="cta-button">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+                <a href="tel:+2347050746268" class="cta-button-outline">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Visit our shop or get in touch for inquiries and support</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Our Location</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p>Oke Olola, Alaadota Street, Oyo, Oyo State</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <p>07050746268<br>09032732068</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p>humblesuperior914@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="tel" placeholder="Your Phone Number">
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit" class="cta-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo" style="color: white; margin-bottom: 20px;">Humble <span style="color: var(--accent);">Superior</span> Technology</div>
+            
+            <div class="footer-links">
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 Humble Superior Technology. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
